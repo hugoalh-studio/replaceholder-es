@@ -1,0 +1,25 @@
+# Security Policy
+
+## Supported Versions
+
+> | **Support** | **Legend** | **Description** |
+> |:-:|:-:|:--|
+> | ✔️ | 🟤 | Pending / Pre Release / Unstable |
+> | ✔️ | 🔵 | Current Release |
+> | ✔️ | 🟢 | Long Term Support |
+> | ✔️ | 🟠 | Maintenance |
+> | ❌ | 🔴 | End of Life |
+
+| **Versions** | **Status** | **🔵 Date** | **🟢 Date** | **🔴 Date** | **Target - Deno** |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| v0.1.X | 🟤 | *Unknown* | *Unknown* | *Unknown* | >= v1.35.0 |
+
+> **ℹ️ Notice:**
+>
+> - The date format is according to ISO 8601 standard.
+> - Values in italic format are subject to change.
+> - Versions which not in the list are also end of life.
+
+## Report A Vulnerability
+
+You can report a security vulnerability by [create a security vulnerability report](https://github.com/hugoalh/hugoalh/blob/main/universal-guide/contributing.md#create-a-security-vulnerability-report).
