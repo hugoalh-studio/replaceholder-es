@@ -51,10 +51,10 @@ export class Replaceholder {
 	handle(item: string, data: ReplaceholderData): string {
 		let content: string = item;
 		for (const [key, value] of ((data instanceof Map) ? data.entries() : Object.entries(data))) {
-			content = content.replace(new RegExp(`(?<!\\\\)${this.#openEscape}${escapeRegExpPattern(key)}${this.#closeEscape}`, "gv"), value);
+			content = content.replace(new RegExp(`(?<!\\\\)${this.#openEscape}${escapeRegExpPattern(key)}${this.#closeEscape}`, "gv"), (this.#htmlEscape ? escapeHTML(value) : value));
 		}
 		content = content.replace(new RegExp(`\\\\${this.#openEscape}(?<key>.+?)${this.#closeEscape}`, "gv"), `${this.#openRaw}$<key>${this.#closeRaw}`);
-		return (this.#htmlEscape ? escapeHTML(content) : content);
+		return content;
 	}
 	/**
 	 * @param {string} item Item.
