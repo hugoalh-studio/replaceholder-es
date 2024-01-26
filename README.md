@@ -62,11 +62,6 @@ A Deno module for template.
     */
     close?: string;
     /**
-     * Whether to also escape HTML characters.
-    * @default false
-    */
-    htmlEscape?: boolean;
-    /**
      * Pattern for the tag open.
     * @default "{{"
     */

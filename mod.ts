@@ -1,13 +1,4 @@
-import escapeRegExpPattern from "https://esm.sh/escape-string-regexp@5.0.0";
-/**
- * Escape HTML characters.
- * @access private
- * @param {string} item 
- * @returns {string}
- */
-function escapeHTML(item: string): string {
-	return item.replace(/&(?!\w+;)/gu, "&amp;").replace(/</gu, "&lt;").replace(/>/gu, "&gt;").replace(/"/gu, "&quot;").replace(/'/gu, "&#039;");
-}
+import { escape as escapeRegExpPattern } from "https://deno.land/std@0.213.0/regexp/escape.ts";
 export type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
 export interface ReplaceholderOptions {
 	/**
@@ -15,11 +6,6 @@ export interface ReplaceholderOptions {
 	 * @default "}}"
 	 */
 	close?: string;
-	/**
-	 * Whether to also escape HTML characters.
-	 * @default false
-	 */
-	htmlEscape?: boolean;
 	/**
 	 * Pattern for the tag open.
 	 * @default "{{"
@@ -29,7 +15,6 @@ export interface ReplaceholderOptions {
 export class Replaceholder {
 	#closeEscape: string;
 	#closeRaw: string;
-	#htmlEscape: boolean;
 	#openEscape: string;
 	#openRaw: string;
 	/**
@@ -39,7 +24,6 @@ export class Replaceholder {
 	constructor(options: ReplaceholderOptions = {}) {
 		this.#closeRaw = options.close ?? "}}";
 		this.#closeEscape = escapeRegExpPattern(this.#closeRaw);
-		this.#htmlEscape = options.htmlEscape ?? false;
 		this.#openRaw = options.open ?? "{{";
 		this.#openEscape = escapeRegExpPattern(this.#openRaw);
 	}
@@ -51,7 +35,7 @@ export class Replaceholder {
 	handle(item: string, data: ReplaceholderData): string {
 		let content: string = item;
 		for (const [key, value] of ((data instanceof Map) ? data.entries() : Object.entries(data))) {
-			content = content.replace(new RegExp(`(?<!\\\\)${this.#openEscape}${escapeRegExpPattern(key)}${this.#closeEscape}`, "gv"), (this.#htmlEscape ? escapeHTML(value) : value));
+			content = content.replace(new RegExp(`(?<!\\\\)${this.#openEscape}${escapeRegExpPattern(key)}${this.#closeEscape}`, "gv"), value);
 		}
 		content = content.replace(new RegExp(`\\\\${this.#openEscape}(?<key>.+?)${this.#closeEscape}`, "gv"), `${this.#openRaw}$<key>${this.#closeRaw}`);
 		return content;
