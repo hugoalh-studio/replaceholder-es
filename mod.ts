@@ -1,4 +1,4 @@
-import { escape as escapeRegExpPattern } from "https://deno.land/std@0.213.0/regexp/escape.ts";
+import { escape as escapeRegExpPattern } from "https://deno.land/std@0.214.0/regexp/escape.ts";
 export type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
 export interface ReplaceholderOptions {
 	/**
