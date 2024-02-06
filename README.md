@@ -13,9 +13,7 @@ A Deno module for template.
 ### Deno
 
 - **Target Version:** >= v1.35.0
-- **Require Permission:**
-  - **Network (`allow-net`):**
-    - *Resources Domain*
+- **Require Permission:** *N/A*
 - **Registry:**
   - DenoPKG
     ```ts
