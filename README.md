@@ -1,7 +1,6 @@
 # Replaceholder (Deno)
 
 [⚖️ MIT](./LICENSE.md)
-[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/hugoalh-studio/replaceholder-deno?label=Grade&logo=codefactor&logoColor=ffffff&style=flat-square "CodeFactor Grade")](https://www.codefactor.io/repository/github/hugoalh-studio/replaceholder-deno)
 
 |  | **Release - Latest** | **Release - Pre** |
 |:-:|:-:|:-:|
@@ -17,7 +16,7 @@ A Deno module for template.
 - **Require Permission:**
   - **Network (`allow-net`):**
     - *Resources Domain*
-- **Domain/Registry:**
+- **Registry:**
   - DenoPKG
     ```ts
     import ... from "https://denopkg.com/hugoalh-studio/replaceholder-deno[@<Tag>]/mod.ts";
