@@ -12,7 +12,7 @@
 
 | **Versions** | **Status** | **🔵 Date** | **🟢 Date** | **🔴 Date** | **Target - Deno** |
 |:-:|:-:|:-:|:-:|:-:|:-:|
-| v0.1.X | 🟤 | *Unknown* | *Unknown* | *Unknown* | >= v1.35.0 |
+| v0.1.X | 🟤 | *Unknown* | *N/A* | *Unknown* | >= v1.35.0 |
 
 > **ℹ️ Notice:**
 >
