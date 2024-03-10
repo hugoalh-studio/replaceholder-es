@@ -1,12 +1,12 @@
 // This file is only for JSR related, non-JSR related must set in the file `deno.jsonc`!
 {
 	"name": "@hugoalh/replaceholder",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"exports": {
 		".": "./mod.ts"
 	},
 	"imports": {
-		"https://deno.land/std@0.219.1/regexp/escape.ts": "jsr:@std/regexp/escape"
+		"https://deno.land/std@0.219.1/regexp/escape.ts": "jsr:@std/regexp@0.219.1/escape"
 	},
 	"publish": {
 		"exclude": [
