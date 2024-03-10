@@ -1,40 +1,102 @@
-# Replaceholder (Deno)
+# Replaceholder (TypeScript)
 
-[⚖️ MIT](./LICENSE.md)
+[**⚖️** MIT](./LICENSE.md)
 
-|  | **Release - Latest** | **Release - Pre** |
-|:-:|:-:|:-:|
-| [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=ffffff&style=flat-square "GitHub")](https://github.com/hugoalh-studio/replaceholder-deno) | ![GitHub Latest Release Version](https://img.shields.io/github/release/hugoalh-studio/replaceholder-deno?sort=semver&label=&style=flat-square "GitHub Latest Release Version") (![GitHub Latest Release Date](https://img.shields.io/github/release-date/hugoalh-studio/replaceholder-deno?label=&style=flat-square "GitHub Latest Release Date")) | ![GitHub Latest Pre-Release Version](https://img.shields.io/github/release/hugoalh-studio/replaceholder-deno?include_prereleases&sort=semver&label=&style=flat-square "GitHub Latest Pre-Release Version") (![GitHub Latest Pre-Release Date](https://img.shields.io/github/release-date-pre/hugoalh-studio/replaceholder-deno?label=&style=flat-square "GitHub Latest Pre-Release Date")) |
+**🗂️**
+[![GitHub: hugoalh-studio/replaceholder-ts](https://img.shields.io/badge/hugoalh--studio/replaceholder--ts-181717?logo=github&logoColor=ffffff&style=flat "GitHub: hugoalh-studio/replaceholder-ts")](https://github.com/hugoalh-studio/replaceholder-ts)
+[![JSR: @hugoalh/replaceholder](https://img.shields.io/badge/JSR-@hugoalh/replaceholder-F7DF1E?labelColor=F7DF1E&logoColor=000000&style=flat "JSR: @hugoalh/replaceholder")](https://jsr.io/@hugoalh/replaceholder)
 
-A Deno module for template.
+**🆙** ![Latest Release Version](https://img.shields.io/github/release/hugoalh-studio/replaceholder-ts?sort=semver&color=2187C0&label=&style=flat "Latest Release Version") (![Latest Release Date](https://img.shields.io/github/release-date/hugoalh-studio/replaceholder-ts?color=2187C0&label=&style=flat "Latest Release Date"))
 
-## 🔰 Begin
+A TypeScript module for string template.
 
-### Deno
+## 🎯 Target
 
-- **Target Version:** >= v1.35.0
-- **Require Permission:** *N/A*
-- **Registry:**
-  - DenoPKG
-    ```ts
-    import ... from "https://denopkg.com/hugoalh-studio/replaceholder-deno[@<Tag>]/mod.ts";
-    ```
-  - GitHub Raw *\[Require Tag\]*
-    ```ts
-    import ... from "https://raw.githubusercontent.com/hugoalh-studio/replaceholder-deno/<Tag>/mod.ts";
-    ```
-  - Pax
-    ```ts
-    import ... from "https://pax.deno.dev/hugoalh-studio/replaceholder-deno[@<Tag>]/mod.ts";
-    ```
+- Bun ^ v1.0.0
+- Cloudflare Workers
+- Deno >= v1.34.0 / >= v1.41.1 *(Via JSR)*
+  > **🛡️ Require Permission**
+  >
+  > *N/A*
+- NodeJS >= v16.13.0
 
-> **ℹ️ Notice:** Although it is recommended to import main module with path `mod.ts` in general, it is also able to import part of the module with sub path if available, but do not import if:
+## 🔰 Usage
+
+### Via HTTPS
+
+> **🎯 Supported Target**
 >
-> - it's file path has an underscore prefix (e.g.: `_foo.ts`, `_util/bar.ts`), or
-> - it is a benchmark or test file (e.g.: `foo.bench.ts`, `foo.test.ts`), or
-> - it's symbol has an underscore prefix (e.g.: `export function _baz() {}`).
+> - Deno
+
+1. Import at the script (`<ScriptName>.ts`):
+    - Via DenoPKG
+      ```ts
+      import ... from "https://denopkg.com/hugoalh-studio/replaceholder-ts[@<Tag>]/mod.ts";
+      ```
+    - Via GitHub Raw (Require Tag)
+      ```ts
+      import ... from "https://raw.githubusercontent.com/hugoalh-studio/replaceholder-ts/<Tag>/mod.ts";
+      ```
+    - Via Pax
+      ```ts
+      import ... from "https://pax.deno.dev/hugoalh-studio/replaceholder-ts[@<Tag>]/mod.ts";
+      ```
+    > **ℹ️ Note**
+    >
+    > Although it is recommended to import the entire module with the main path `mod.ts`, it is also able to import part of the module with sub path if available, but do not import if:
+    >
+    > - it's file path has an underscore prefix (e.g.: `_foo.ts`, `_util/bar.ts`), or
+    > - it is a benchmark or test file (e.g.: `foo.bench.ts`, `foo.test.ts`), or
+    > - it's symbol has an underscore prefix (e.g.: `export function _baz() {}`).
+    >
+    > These elements are not considered part of the public API, thus no stability is guaranteed for them.
+
+### Via JSR With Native Support
+
+> **🎯 Supported Target**
 >
-> These elements are not considered part of the public API, thus no stability is guaranteed for them.
+> - Deno
+
+1. Import at the script (`<ScriptName>.ts`):
+    ```ts
+    import ... from "jsr:@hugoalh/replaceholder[@<Tag>]";
+    ```
+    > **ℹ️ Note**
+    >
+    > Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
+
+### Via JSR With NPM Compatibility Layer Support
+
+> **🎯 Supported Target**
+>
+> - Bun
+> - Cloudflare Workers
+> - NodeJS
+
+1. Install via console/shell/terminal:
+    - Via Bun
+      ```sh
+      bunx jsr add @hugoalh/replaceholder[@<Tag>]
+      ```
+    - Via NPM
+      ```sh
+      npx jsr add @hugoalh/replaceholder[@<Tag>]
+      ```
+    - Via PNPM
+      ```sh
+      pnpm dlx jsr add @hugoalh/replaceholder[@<Tag>]
+      ```
+    - Via Yarn
+      ```sh
+      yarn dlx jsr add @hugoalh/replaceholder[@<Tag>]
+      ```
+2. Import at the script (`<ScriptName>.ts`):
+    ```ts
+    import ... from "@hugoalh/replaceholder";
+    ```
+    > **ℹ️ Note**
+    >
+    > Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
 
 ## 🧩 API
 
@@ -47,9 +109,6 @@ A Deno module for template.
   ```
 - ```ts
   function replaceholder(item: string, data: ReplaceholderData, options: ReplaceholderOptions = {}): string;
-  ```
-- ```ts
-  type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
   ```
 - ```ts
   interface ReplaceholderOptions {
@@ -65,20 +124,23 @@ A Deno module for template.
     open?: string;
   }
   ```
+- ```ts
+  type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
+  ```
 
-> **ℹ️ Notice:** Documentation is included inside the script file, can view it via:
+> **ℹ️ Note**
+>
+> For the prettier documentation, can visit via:
 >
 > - [Deno CLI `deno doc`](https://deno.land/manual/tools/documentation_generator)
-> - [Deno Doc Land](https://doc.deno.land)
+> - [JSR](https://jsr.io/@hugoalh/is-primitive)
 
 ## ✍️ Example
 
 - ```ts
-  import { replaceholder } from "https://raw.githubusercontent.com/hugoalh-studio/replaceholder-deno/main/mod.ts";
-
   replaceholder("abc{{age}}{{name}}\\{{name2}}def", {
     age: "30",
     name: "def"
-  })
+  });
   //=> "abc30def{{name2}}def"
   ```
