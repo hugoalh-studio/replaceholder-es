@@ -138,9 +138,9 @@ A TypeScript module for literal string template.
 ## ✍️ Example
 
 - ```ts
-  new Replaceholder().handle("abc{{age}}{{name}}\\{{name2}}def", {
-    age: "30",
-    name: "def"
+  new Replaceholder().handle("This is {{name}}, {{age}} years old, and likes to use \"\\{{replaceholder}}\"!", {
+    age: "18",
+    name: "Bob"
   });
-  //=> "abc30def{{name2}}def"
+  //=> "This is Bob, 18 years old, and likes to use \"{{replaceholder}}\"!"
   ```
