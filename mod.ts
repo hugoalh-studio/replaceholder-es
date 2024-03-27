@@ -1,5 +1,11 @@
-import { escape as escapeRegExpPattern } from "https://deno.land/std@0.219.1/regexp/escape.ts";
-export type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
+import { escape as escapeRegExpPattern } from "https://deno.land/std@0.220.1/regexp/escape.ts";
+/**
+ * Type of the key-value like.
+ */
+export type KeyValueLike<V extends string = string> = { [key: string]: V; } | Map<string, V> | Record<string, V>;
+/**
+ * Options of the Replaceholder.
+ */
 export interface ReplaceholderOptions {
 	/**
 	 * Pattern for the tag close.
@@ -23,16 +29,17 @@ export class Replaceholder {
 	 */
 	constructor(options: ReplaceholderOptions = {}) {
 		this.#closeRaw = options.close ?? "}}";
-		this.#closeEscape = escapeRegExpPattern(this.#closeRaw);
 		this.#openRaw = options.open ?? "{{";
+		this.#closeEscape = escapeRegExpPattern(this.#closeRaw);
 		this.#openEscape = escapeRegExpPattern(this.#openRaw);
 	}
 	/**
+	 * Handle the placeholders.
 	 * @param {string} item Item.
-	 * @param {ReplaceholderData} data Data.
+	 * @param {KeyValueLike} data Data.
 	 * @returns {string}
 	 */
-	handle(item: string, data: ReplaceholderData): string {
+	handle(item: string, data: KeyValueLike): string {
 		let content: string = item;
 		for (const [key, value] of ((data instanceof Map) ? data.entries() : Object.entries(data))) {
 			content = content.replace(new RegExp(`(?<!\\\\)${this.#openEscape}${escapeRegExpPattern(key)}${this.#closeEscape}`, "gv"), value);
@@ -41,22 +48,24 @@ export class Replaceholder {
 		return content;
 	}
 	/**
+	 * Handle the placeholders.
 	 * @param {string} item Item.
-	 * @param {ReplaceholderData} data Data.
+	 * @param {KeyValueLike} data Data.
 	 * @param {ReplaceholderOptions} [options={}] Options.
 	 * @returns {string}
 	 */
-	static handle(item: string, data: ReplaceholderData, options: ReplaceholderOptions = {}): string {
+	static handle(item: string, data: KeyValueLike, options: ReplaceholderOptions = {}): string {
 		return new this(options).handle(item, data);
 	}
 }
 export default Replaceholder;
 /**
+ * Handle the placeholders.
  * @param {string} item Item.
- * @param {ReplaceholderData} data Data.
+ * @param {KeyValueLike} data Data.
  * @param {ReplaceholderOptions} [options={}] Options.
  * @returns {string}
  */
-export function replaceholder(item: string, data: ReplaceholderData, options: ReplaceholderOptions = {}): string {
+export function replaceholder(item: string, data: KeyValueLike, options: ReplaceholderOptions = {}): string {
 	return new Replaceholder(options).handle(item, data);
 }

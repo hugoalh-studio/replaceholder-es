@@ -8,7 +8,7 @@
 
 **🆙** ![Latest Release Version](https://img.shields.io/github/release/hugoalh-studio/replaceholder-ts?sort=semver&color=2187C0&label=&style=flat "Latest Release Version") (![Latest Release Date](https://img.shields.io/github/release-date/hugoalh-studio/replaceholder-ts?color=2187C0&label=&style=flat "Latest Release Date"))
 
-A TypeScript module for string template.
+A TypeScript module for literal string template.
 
 ## 🎯 Target
 
@@ -103,29 +103,29 @@ A TypeScript module for string template.
 - ```ts
   class Replaceholder {
     constructor(options: ReplaceholderOptions = {}): Replaceholder;
-    handle(item: string, data: ReplaceholderData): string;
-    static handle(item: string, data: ReplaceholderData, options: ReplaceholderOptions = {}): string;
+    handle(item: string, data: KeyValueLike): string;
+    static handle(item: string, data: KeyValueLike, options: ReplaceholderOptions = {}): string;
   }
   ```
 - ```ts
-  function replaceholder(item: string, data: ReplaceholderData, options: ReplaceholderOptions = {}): string;
+  function replaceholder(item: string, data: KeyValueLike, options: ReplaceholderOptions = {}): string;
   ```
 - ```ts
   interface ReplaceholderOptions {
     /**
      * Pattern for the tag close.
-    * @default "}}"
-    */
+     * @default "}}"
+     */
     close?: string;
     /**
      * Pattern for the tag open.
-    * @default "{{"
-    */
+     * @default "{{"
+     */
     open?: string;
   }
   ```
 - ```ts
-  type ReplaceholderData = { [key: string]: string; } | Map<string, string> | Record<string, string>;
+  type KeyValueLike<V extends string = string> = { [key: string]: V; } | Map<string, V> | Record<string, V>;
   ```
 
 > **ℹ️ Note**
@@ -138,7 +138,7 @@ A TypeScript module for string template.
 ## ✍️ Example
 
 - ```ts
-  replaceholder("abc{{age}}{{name}}\\{{name2}}def", {
+  new Replaceholder().handle("abc{{age}}{{name}}\\{{name2}}def", {
     age: "30",
     name: "def"
   });

@@ -1,7 +1,7 @@
 import { assertEquals } from "TEST/assert_equals.ts";
-import { replaceholder } from "./mod.ts";
-Deno.test("Empty", { permissions: "none" }, () => {
-	assertEquals(replaceholder("abc{{age}}{{name}}\\{{name2}}def", {
+import { Replaceholder } from "./mod.ts";
+Deno.test("Main", { permissions: "none" }, () => {
+	assertEquals(new Replaceholder().handle("abc{{age}}{{name}}\\{{name2}}def", {
 		age: "30",
 		name: "def"
 	}), "abc30def{{name2}}def");
