@@ -1,8 +1,8 @@
-import { escape as escapeRegExpPattern } from "https://deno.land/std@0.220.1/regexp/escape.ts";
+import { escape as escapeRegExpPattern } from "https://deno.land/std@0.222.1/regexp/escape.ts";
 /**
  * Type of the key-value like.
  */
-export type KeyValueLike<V extends string = string> = { [key: string]: V; } | Map<string, V> | Record<string, V>;
+export type KeyValueLike = { [key: string]: string; } | Map<string, string> | Record<string, string>;
 /**
  * Options of the Replaceholder.
  */

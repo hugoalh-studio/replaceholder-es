@@ -1,4 +1,4 @@
-import { assertEquals } from "TEST/assert_equals.ts";
+import { assertEquals } from "STD/assert/assert_equals.ts";
 import { Replaceholder } from "./mod.ts";
 Deno.test("Main", { permissions: "none" }, () => {
 	assertEquals(new Replaceholder().handle("This is {{name}}, {{age}} years old, and likes to use \"\\{{replaceholder}}\"!", {

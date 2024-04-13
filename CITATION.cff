@@ -1,12 +1,16 @@
 # yaml-language-server: $schema=https://citation-file-format.github.io/1.2.0/schema.json
 cff-version: "1.2.0"
-title: "Replaceholder (TypeScript)"
+title: "Replaceholder (ES)"
 message: "If you use this software, please cite it using the metadata from this file."
 type: "software"
 authors:
   - name: "hugoalh Studio"
-repository-code: "https://github.com/hugoalh-studio/replaceholder-ts"
+repository-code: "https://github.com/hugoalh-studio/replaceholder-es"
 keywords:
+  - "es"
+  - "javascript"
+  - "js"
+  - "modulejs"
   - "replaceholder"
   - "ts"
   - "typescript"
