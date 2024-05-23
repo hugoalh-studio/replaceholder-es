@@ -1,4 +1,4 @@
-import { escape as escapeRegExpPattern } from "https://deno.land/std@0.222.1/regexp/escape.ts";
+import { escape as escapeRegExpPattern } from "jsr:@std/regexp@0.224.1/escape";
 /**
  * Type of the key-value like.
  */

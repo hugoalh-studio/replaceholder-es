@@ -1,13 +1,11 @@
-// This file is only for JSR related, non-JSR related must set in the file `deno.jsonc`!
 {
+	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"name": "@hugoalh/replaceholder",
 	"version": "0.2.1",
 	"exports": {
 		".": "./mod.ts"
 	},
-	"imports": {
-		"https://deno.land/std@0.222.1/regexp/escape.ts": "jsr:@std/regexp@0.222.1/escape"
-	},
+	"imports": { },
 	"publish": {
 		"exclude": [
 			"**/*_bench.ts",
@@ -26,6 +24,7 @@
 			"npm/**"
 		],
 		"include": [
+			"**/*.json",
 			"**/*.ts",
 			"**/*.tsx",
 			"jsr.jsonc",
